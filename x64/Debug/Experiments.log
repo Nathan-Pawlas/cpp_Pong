@@ -1,2 +1,3 @@
 ﻿  main.cpp
-  Experiments.vcxproj -> C:\dev\Portfolio\CPP_Games\Experiments\x64\Debug\Experiments.exe
+C:\dev\Projects\cpp_Pong\Ball.h(18,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Experiments.vcxproj -> C:\dev\Projects\cpp_Pong\x64\Debug\Experiments.exe

@@ -1,6 +1,7 @@
 #pragma once
 #include "Constants.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Rect.hpp>
 
 class Paddle
 {
@@ -11,6 +12,8 @@ public:
 		x_pos = x;
 		y_pos = y;
 		setColor(sf::Color().White);
+		collider.height = 80;
+		collider.width = 20;
 	}
 	~Paddle()
 	{
@@ -31,6 +34,7 @@ public:
 public:
 	float x_pos = 0;
 	float y_pos = 0;
+	sf::Rect<float> collider;
 
 private:
 	void draw(sf::RenderWindow* window)
@@ -43,6 +47,9 @@ private:
 		//Keep Player in the Bounds of the Screen
 		if (y_pos < (SCREEN_HEGIHT - shape.getSize().y) && y_pos > 0)
 			shape.setPosition(sf::Vector2f(x_pos, y_pos));
+
+		collider.top = y_pos;
+		collider.left = x_pos;
 	}
 
 private:
