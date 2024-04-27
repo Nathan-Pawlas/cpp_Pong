@@ -1,0 +1,6 @@
+﻿  main.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 29 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Experiments.vcxproj -> C:\dev\Portfolio\CPP_Games\Experiments\x64\Release\Experiments.exe
