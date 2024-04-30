@@ -3,6 +3,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "UI.h"
+#include <SFML/Audio.hpp>
 
 
 
@@ -18,6 +19,10 @@ int main()
 
     Ball ball;
     UI ui;
+    sf::SoundBuffer buffer;
+    buffer.loadFromFile("beep-03.wav");
+    sf::Sound sound;
+    sound.setBuffer(buffer);
 
     bool round_over = false;
 
@@ -53,7 +58,7 @@ int main()
             if (sf::Keyboard().isKeyPressed(sf::Keyboard().Down))
                 p2.y_pos += speed;
 
-            ball.physics(&p1, &p2);
+            ball.physics(&p1, &p2, &sound);
 
             
 
@@ -82,6 +87,7 @@ int main()
                 round_over = true;
             }
         }
+
 
         ui.update(&window);
         window.display();

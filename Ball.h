@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Rect.hpp>
 #include <random>
+#include <SFML/Audio.hpp>
 
 class Ball
 {
@@ -43,14 +44,19 @@ public:
 		}
 	}
 
-	void physics(Paddle* p1, Paddle* p2)
+	void physics(Paddle* p1, Paddle* p2, sf::Sound* sound)
 	{
 		if (this->collider.intersects(p1->collider) || this->collider.intersects(p2->collider))
+		{
 			x_velocity *= -(1 + scale_factor);
-
+			y_velocity += ((float)rand() / RAND_MAX) * (0.25 - 0.01) + 0.01;
+			sound->play();
+		}
 
 		if (shape.getPosition().y + 4 > SCREEN_HEGIHT || shape.getPosition().y < 0)
+		{
 			y_velocity *= -(1 + scale_factor);
+		}
 	}
 
 public:
@@ -77,5 +83,4 @@ private:
 
 private:
 	sf::CircleShape shape;
-
 };

@@ -1,3 +1,4 @@
 ﻿  main.cpp
-C:\dev\Portfolio\CPP_Games\cpp_Pong\Ball.h(62,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\dev\Portfolio\CPP_Games\cpp_Pong\Ball.h(68,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\dev\Portfolio\CPP_Games\cpp_Pong\Ball.h(52,61): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
   Experiments.vcxproj -> C:\dev\Portfolio\CPP_Games\cpp_Pong\x64\Debug\Experiments.exe
