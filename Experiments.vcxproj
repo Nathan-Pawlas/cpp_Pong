@@ -144,7 +144,9 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="Paddle.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

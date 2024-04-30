@@ -12,10 +12,10 @@ public:
 	{
 		shape = sf::CircleShape(8);
 		shape.setFillColor(sf::Color().White);
-		shape.setPosition(SCREEN_WIDTH / 2, SCREEN_HEGIHT / 2);
+		shape.setPosition((float)SCREEN_WIDTH / 2, (float)SCREEN_HEGIHT / 2);
 		collider.width = 8;
 		collider.height = 8;
-		y_velocity = rand() % 4 + 1;
+		y_velocity = (float)(rand() % 4 + 1);
 	}
 	~Ball()
 	{
@@ -26,22 +26,40 @@ public:
 	{
 		draw(window);
 		setPosition();
+
+		if (shape.getPosition().x < 0)
+		{
+			score2 += 1;
+			shape.setPosition((float)SCREEN_WIDTH / 2, (float)SCREEN_HEGIHT / 2);
+			y_velocity = (float)(rand() % 8) - 4;
+			x_velocity = -3;
+		}
+		else if (shape.getPosition().x > SCREEN_WIDTH)
+		{
+			score1 += 1;
+			shape.setPosition((float)SCREEN_WIDTH / 2, (float)SCREEN_HEGIHT / 2);
+			y_velocity = (float)(rand() % 8) - 4;
+			x_velocity = 3;
+		}
 	}
 
 	void physics(Paddle* p1, Paddle* p2)
 	{
 		if (this->collider.intersects(p1->collider) || this->collider.intersects(p2->collider))
-			x_velocity *= -1;
+			x_velocity *= -(1 + scale_factor);
 
 
 		if (shape.getPosition().y + 4 > SCREEN_HEGIHT || shape.getPosition().y < 0)
-			y_velocity *= -1;
+			y_velocity *= -(1 + scale_factor);
 	}
 
 public:
 	float x_velocity = 3;
 	float y_velocity = 0;
 	sf::Rect<float> collider;
+	int score1 = 0;
+	int score2 = 0;
+	float scale_factor = 0.15;
 
 private:
 	void draw(sf::RenderWindow* window)
