@@ -1,4 +1,4 @@
-Simple C++ Pong 
+Simple C++ Pong by Nathan Pawlas
 
 Controls:
 W-S For Left Paddle
